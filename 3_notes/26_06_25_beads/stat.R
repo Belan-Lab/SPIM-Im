@@ -6,7 +6,7 @@ require(rstatix)
 require(ggplot2)
 require(ggpubr)
 
-setwd('/home/wisstock/bio_hardvare/SPIM-Im/3_notes/26_06_25_beads/')
+setwd('~/bio_hardware/SPIM-Im/3_notes/26_06_25_beads/')
 
 px.size <- 0.493  # um/px
 px.zstep <- 0.625  # um/step

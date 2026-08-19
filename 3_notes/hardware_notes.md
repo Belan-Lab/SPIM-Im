@@ -34,13 +34,15 @@
 
 __FLIR Grasshopper 3 GPIO pinout__
 <p align="center">
-<img src="4_pic/GPIO_GS3.png" width="700"></a>
+<img src="pic/GPIO_GS3.png" width="700"></a>
 </p>
+
 
 __Basler Ace 2R  GPIO pinout__
 <p align="center">
-<img src="4_pic/GPIO_Ace2R.png" width="700"></a>
+<img src="pic/GPIO_Ace2R.png" width="700"></a>
 </p>
+
 
 # Software
 All control is provided with [Micro-Manager](https://micro-manager.org/) and [pymmcore-plus](https://pymmcore-plus.github.io/pymmcore-plus/) library with [napari-micromanager](https://pymmcore-plus.github.io/napari-micromanager/) GUI.
