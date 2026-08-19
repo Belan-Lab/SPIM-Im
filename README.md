@@ -1,11 +1,29 @@
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-team.svg)](https://stand-with-ukraine.pp.ua)
 
-Selective Plane Illumination Microscopy Setup for Volumetric Imaging
+Selective Plane Illumination Microscopy Setup
 ==================================
 
-_Kyiv, Ukraine_
+_Fluorescence Imaging Laboratory, Kyiv, Ukraine_
 
-L-SPIM setup, version 0.0
+<p align="center">
+<img src="4_pic/l_spim_v0.jpg" width="1000"></a>
+</p>
+__L-SPIM v0__
+
+# L-SPIM v0 parameters overview
+
+| Parameter                                      | Value                                                        |
+| ---------------------------------------------- | ------------------------------------------------------------ |
+| Detection objective                            | Olympus PlaN 10x 0.25                                        |
+| Magnification                                  | 5.56x                                                        |
+| Camera                                         | Basler Ace 2R Pro (a2A5320-23umPRO), 5320x3032 px (16.1 Mpx) |
+| Pixel size                                     | 0.493 μm/px                                                  |
+| Field of view                                  | 2.62x1.49 mm                                                 |
+| Z-stack step resolution                        | 16 μstep/μm (0.0625 μm/μstep)                                |
+| Lateral resolution, FWHM theoretical/estimated | 1.12 μm/2.06 μm                                              |
+| Axial resolution, FWHM theoretical/estimated   | 11.70 μm/ 6.32 μm                                            |
+| Excitation lasers                              | 510 nm, 640 nm                                               |
+| Emission filters                               | Chroma HQ545/40m, Chroma D620/20m                            |
 
 # Detection arm
 
@@ -44,32 +62,37 @@ L-SPIM setup, version 0.0
 | Pixel size      | 2.74x2.74 μm         |
 | Frame rate      | up to 24 fps         |
 
-__Basler Ace 2R  GPIO pinout__
-<p align="center">
-<img src="4_pic/GPIO_Ace2R.png" width="700"></a>
-</p>
+### GPIO pinout
 
 |Pin|Function|I/O Line|Colour|
 |-|-|-|-|
 |1|12–24 VDC camera power|-|Brown|
 |2|Opto-coupled I/O input line|Line 1|White|
 |3|Ground for opto-coupled I/O line|-|Blue|
-|4|General purpose I/O (GPIO) line|__Line 2 (output, active high)__|Black|
+|4|General purpose I/O (GPIO) line|__Line 2__|Black|
 |5|General purpose I/O (GPIO) line|Line 3|Grey|
 |6|Ground for camera power and General Purpose I/O (GPIO) lines|-|Pink|
 
 [Basler Power-I/O Cable](https://docs.baslerweb.com/basler-power-io-cable-m8-6p-open-p)
+
+### GPIO configuration
+Pylon Viewer v7.2 camera parameters, category __Digital I/O Control__:
+
+- __Line Selector:__ Line 2
+- __Line Inverter:__ not selected
+- __Line Mode:__ Output
+- __Line Source:__ Acquisition Active
+
+<p align="center">
+<img src="4_pic/pylon_io_config.png" width="700"></a>
+</p>
 
 ## Sync
 
 Synchronisation with [Arduino32bitBoards](https://micro-manager.org/Arduino32bitBoards), specs for ESP32:
 
 - Baudrate: 115200
-- DAC1 on pin 25 and DAC2 on pin 26
-- ADC not implemented
-- Able to set PWM frequency and Resolution
-- Low Price boards available
-- KEEP IN MIND: NOT 5V TOLERANT!!
+- Laser TTL trigger module requires 5V, need level conversion 3.3V -> 5V
 
 __Pinout:__
 - Trigger: __Pin 5 - camera Line 2 input__
