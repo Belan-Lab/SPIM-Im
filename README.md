@@ -49,6 +49,17 @@ __Basler Ace 2R  GPIO pinout__
 <img src="4_pic/GPIO_Ace2R.png" width="700"></a>
 </p>
 
+|Pin|Function|I/O Line|Colour|
+|-|-|-|-|
+|1|12–24 VDC camera power|-|Brown|
+|2|Opto-coupled I/O input line|Line 1|White|
+|3|Ground for opto-coupled I/O line|-|Blue|
+|4|General purpose I/O (GPIO) line|__Line 2 (output, active high)__|Black|
+|5|General purpose I/O (GPIO) line|Line 3|Grey|
+|6|Ground for camera power and General Purpose I/O (GPIO) lines|-|Pink|
+
+[Basler Power-I/O Cable](https://docs.baslerweb.com/basler-power-io-cable-m8-6p-open-p)
+
 ## Sync
 
 Synchronisation with [Arduino32bitBoards](https://micro-manager.org/Arduino32bitBoards), specs for ESP32:
@@ -61,15 +72,22 @@ Synchronisation with [Arduino32bitBoards](https://micro-manager.org/Arduino32bit
 - KEEP IN MIND: NOT 5V TOLERANT!!
 
 __Pinout:__
-- Trigger: Pin 5
-- Channel 1: Pin 25 (DAC)
-- Channel 2: Pin 26 (DAC)
--  Channel 3: Pin 27 (PWM)
-- Channel 4: Pin 15 (PWM)
-- Channel 5: Pin 14 (PWM)
-- Channel 6: Pin 4 (PWM)
-- Channel 7: Pin 23 (PWM)
-- Channel 8: Pin 19 (PWM)
+- Trigger: __Pin 5 - camera Line 2 input__
+- Channel 1: __Pin 25/DAC - 620 nm trigger__
+- Channel 2: __Pin 26/DAC - 510 nm trigger__
+-  Channel 3: Pin 27/PWM
+- Channel 4: Pin 15/PWM
+- Channel 5: Pin 14/PWM
+- Channel 6: Pin 4/PWM
+- Channel 7: Pin 23/PWM
+- Channel 8: Pin 19/PWM
+
+__Switch states__
+|Laser|Pin|State|
+|-|-|-|
+|620 nm|25 (Ch. 1)|1|
+|510 nm|26 (Ch.2 )|2|
+|620 nm + 510 nm|25 + 26 (Ch. 1 + Ch. 2)|3|
 
 ## Hardware config
 
