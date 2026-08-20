@@ -96,9 +96,9 @@ Synchronisation with [Arduino32bitBoards](https://micro-manager.org/Arduino32bit
 
 __Pinout:__
 - Trigger: __Pin 5 - camera Line 2 input__
-- Channel 1: __Pin 25/DAC - 620 nm trigger__
+- Channel 1: __Pin 25/DAC - Level Converter ON__
 - Channel 2: __Pin 26/DAC - 510 nm trigger__
--  Channel 3: Pin 27/PWM
+- Channel 3: __Pin 27/PWM - 640 nm trigger__
 - Channel 4: Pin 15/PWM
 - Channel 5: Pin 14/PWM
 - Channel 6: Pin 4/PWM
@@ -106,11 +106,11 @@ __Pinout:__
 - Channel 8: Pin 19/PWM
 
 __Switch states__
-|Laser|Pin|State|
+|Laser|Pin Hight|State|
 |-|-|-|
-|620 nm|25 (Ch. 1)|1|
-|510 nm|26 (Ch.2 )|2|
-|620 nm + 510 nm|25 + 26 (Ch. 1 + Ch. 2)|3|
+|510 nm|25+26 (Ch.1+Ch.2)|3|
+|640 nm|25+27 (Ch.1+Ch.3)|4 (not working)|
+|510 nm + 640 nm|25+26+27 (Ch.1+Ch.2+Ch.3)|6 (not working)|
 
 ## Hardware config
 
